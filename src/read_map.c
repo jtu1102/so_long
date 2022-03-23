@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 21:30:30 by soahn             #+#    #+#             */
-/*   Updated: 2022/03/14 23:10:36 by soahn            ###   ########.fr       */
+/*   Updated: 2022/03/17 19:54:27 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	map_save(t_game *game, char path)
 			exit_msg("Map is not rectangular.\n");
 		j = -1;
 		while (++j < game->maps.cols)
-		{// to do: check if the word is valid (0,1,C,P,E)
+		{
 			if (!is_right_components(line[j]))
 				exit_msg("Invalid component has found in the map.\n");
 			game->maps.map[i][j] = line[j];
@@ -97,7 +97,6 @@ void	read_map(t_game *game, char *path)
 	map_malloc(game, fd); // memory allocation
 	close(fd);
 	map_save(game, path); // save line by line of the map + check if the map is walled 
-	// if (chk_walled(game->maps) == FALSE)
-	// 	exit_msg("Map is not walled.\n");
-	map_components(game);
+	chk_walled(game->maps);
+	// map_components(game); 아직 왜 세야 하는지 모르겠어서 패스.
 }
