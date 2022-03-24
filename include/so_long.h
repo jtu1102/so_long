@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:43:04 by soahn             #+#    #+#             */
-/*   Updated: 2022/03/23 20:56:22 by soahn            ###   ########.fr       */
+/*   Updated: 2022/03/24 22:23:10 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,25 @@ typedef struct s_img
 	t_img_config	enemy;
 }		t_img;
 
+typedef struct s_player
+{
+	int	x;
+	int	y;
+
+	t_spr
+
+}			t_player;
+
 typedef struct s_game
 {
-	t_map	maps;
 	void	*mlx_ptr;
 	void	*win_ptr;
-	int		flag[1];
-	t_img	imgs;
-
+	// 움직이는 이미지와 움직이지 않는 이미지를 나눠 주어야 함, 타일/플레이어/콜렉티브 이게 낫겠다..
+	t_map		map;
+	t_tile		tile;
+	t_player	player;
+	t_collec	collec;
+	int			flag[1];
 }	t_game;
 
 /* mlx_img_helper.c */
