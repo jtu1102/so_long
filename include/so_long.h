@@ -6,7 +6,11 @@
 /*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:43:04 by soahn             #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2022/03/24 22:23:10 by soahn            ###   ########.fr       */
+=======
+/*   Updated: 2022/03/26 05:37:17 by soahn            ###   ########.fr       */
+>>>>>>> dab3a14358460aa2b774c0157c01fd2e69d07dfe
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,45 +34,67 @@ typedef struct s_map
 	int		component[4]; //count the number of each components (player, exit, collectible item, enemy)
 }	t_map;
 
-typedef struct s_img_config
+typedef struct s_sprites
 {
 	void	*ptr;
-	int		*data;
-	int		w;
-	int		h;
-}		t_img_config;
+	struct s_sprites	*next;
+}	t_sprites;
 
-typedef struct s_img
+typedef struct s_tile
 {
-	t_img_config	tile[5];
-	t_img_config	player[4][3];
-	t_img_config	collec;
-	t_img_config	enemy;
-}		t_img;
+	void	*background_ptr;
+	void	*wall_ptr;
+	void	*exit_ptr;
+	void	*closed_ptr;
+}		t_tile;
 
 typedef struct s_player
 {
 	int	x;
 	int	y;
 
-	t_sprites	
+	t_sprites	*initial;
+	t_sprites	*sprites;
 
-}			t_player;
+	t_sprites	*move_initial[4];
+	t_sprites	*move_sprites[4];
+}		t_player;
+
+typedef struct s_collec
+{
+	void	*ptr;
+}	t_collec;
 
 typedef struct s_game
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	// 움직이는 이미지와 움직이지 않는 이미지를 나눠 주어야 함, 타일/플레이어/콜렉티브 이게 낫겠다..
+	void		*mlx_ptr;
+	void		*win_ptr;
+	int			move_stat;
+	int			offset;
+	int			step;
+	int			fps; // 500 번 마다 loop을 한번씩 건너뛴다. (왜?)
 	t_map		map;
 	t_tile		tile;
 	t_player	player;
 	t_collec	collec;
-	int			flag[1];
+	int			flag[2];
 }	t_game;
+
+/* init_game.c */
+void	init_game(t_game *game);
+
+/* exit_game.c */
+int	exit_game(t_game *game);
+
+/* init_img.c */
+void	init_img(t_game *game);
+
+/* exit_msg.c */
+void	exit_msg(char *msg);
 
 /* mlx_img_helper.c */
 void	*wrap_xpm_to_img(t_game *game, char *str);
+void	put_img(t_game *game, void *img_ptr, int x, int y);
 
 /* handle_key_press.c */
 int	key_hook(int keycode, t_game *game);
@@ -78,5 +104,16 @@ int	loop_hook(t_game *game);
 
 /* exit_game.c */
 int	exit_game(t_game *game);
+
+/* draw.c */
+void	draw_tiles(t_game *game);
+void	draw_exit(t_game *game);
+
+/* read_map.c */
+void	read_map(t_game *game, char *path);
+
+/* read_map_helper.c */
+int	is_right_components(char c);
+void	chk_walled(t_map maps);
 
 #endif

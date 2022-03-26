@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 20:09:05 by soahn             #+#    #+#             */
-/*   Updated: 2022/03/20 00:29:36 by soahn            ###   ########.fr       */
+/*   Updated: 2022/03/26 08:08:30 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,14 @@ void	init_game(t_game *game)
 	game->mlx_ptr = mlx_init();
 	if (!game->mlx_ptr)
 		exit_msg("mlx init fail\n");
-	game->win_ptr = mlx_new_window(game->mlx_ptr, game->maps.cols * \
-	TILE_SIZE, game->maps.rows * TILE_SIZE, "so_long");
+	game->win_ptr = mlx_new_window(game->mlx_ptr, game->map.cols * \
+	TILE_SIZE, game->map.rows * TILE_SIZE, "so_long");
 	if (!game->win_ptr)
 		exit_msg("mlx window init fail\n");
 	init_img(game);
 	init_flag(game);
+	draw_tiles(game);
+	////draw_player(game);
+	////draw_collec(game);
+	draw_exit(game);
 }

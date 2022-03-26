@@ -6,14 +6,14 @@
 #    By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/19 15:58:12 by sashin            #+#    #+#              #
-#    Updated: 2022/03/13 21:31:23 by soahn            ###   ########.fr        #
+#    Updated: 2022/03/26 06:05:44 by soahn            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Original version created by sashin from 42 Seoul
 # If you want to add library, add "$(SRC)", "$(SRC_DIR)", dependancy of $(NAME) and clean
 
-NAME			= ftlib.a
+NAME			= libft.a
 
 CC				= gcc
 CFLAGS			= -Wall -Werror -Wextra

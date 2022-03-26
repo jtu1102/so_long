@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 22:53:28 by soahn             #+#    #+#             */
-/*   Updated: 2022/03/17 19:54:08 by soahn            ###   ########.fr       */
+/*   Updated: 2022/03/26 05:37:05 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	is_right_components(char c)
 {
 	if (c == 'P')
 		return TRUE;
-	if (c == 'E');
+	if (c == 'E')
 		return TRUE;
 	if (c == 'C')
 		return TRUE;
@@ -45,7 +45,8 @@ void	chk_walled(t_map maps)
 	}
 }
 
-void	map_components(t_game *game)
-{
-	return;
-}
+// void	map_components(t_game *game)
+// {
+// 	game
+// 	return;
+// }

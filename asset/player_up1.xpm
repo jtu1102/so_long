@@ -1,5 +1,9 @@
 /* XPM */
+<<<<<<< HEAD
 static char *_046a80b64ac4951d2cb7f95731180d9RIXZqfmIihUiUNwF[] = {
+=======
+static char *_2edee93a433406cacca27ad276c09cdlPbIIgWAcm5U0XL4[] = {
+>>>>>>> dab3a14358460aa2b774c0157c01fd2e69d07dfe
 /* columns rows colors chars-per-pixel */
 "64 128 149 2 ",
 "   c None",

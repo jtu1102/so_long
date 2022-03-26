@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 21:46:09 by soahn             #+#    #+#             */
-/*   Updated: 2022/03/24 20:59:18 by soahn            ###   ########.fr       */
+/*   Updated: 2022/03/26 12:36:54 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 # define TRUE	1
 # define FALSE	0
 
+/* for game->flag */
 # define BONUS	0
+# define EXIT_OPEN 1
 
 # define P 0
 # define E 1
@@ -29,30 +31,20 @@
 /* for images */
 # define ASSET_PATH "./asset/"
 
-# define BACKGROUND 0
-# define WALL 1
-# define EXIT_CLOSED 2
-# define EXIT_OPEN 3
-# define COUNT_BOX 4
-
-# define UP 0
-# define DOWN 1
-# define LEFT 2
-# define RIGHT 3
+/* move status */
+# define STOP 0
+# define UP 1
+# define DOWN 2
+# define LEFT 3
+# define RIGHT 4
 
 /* for mlx_hook */
 # define KEY_PRESS 2
 # define KEY_EXIT 17
 # define NO_MASK 0
+# define KEY_W 13
+# define KEY_S 1
+# define KEY_A 0
+# define KEY_D 2
 
-/* for key_hook */
-# define ESC_KEY 53
-# define W_KEY 13
-# define A_KEY 0
-# define S_KEY 1
-# define D_KEY 2
-# define UP_KEY 126
-# define DOWN_KEY 125
-# define LEFT_KEY 123
-# define RIGHT_KEY 124
 #endif
