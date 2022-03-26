@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 01:16:59 by soahn             #+#    #+#             */
-/*   Updated: 2022/03/26 04:22:08 by soahn            ###   ########.fr       */
+/*   Updated: 2022/03/26 14:42:59 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,41 @@
 
 void	draw_tiles(t_game *game)
 {
-	int		i;
-	int		j;
+	int		x;
+	int		y;
 	t_map	map;
 
 	map = game->map;
-	i = -1;
-	while (++i < map.rows)
+	y = -1;
+	while (++y < map.rows)
 	{
-		j = -1;
-		while (++j < map.cols)
+		x = -1;
+		while (++x < map.cols)
 		{
-			if (map.map[i][j] == '1')
-				put_img(game, game->tile.wall_ptr, i * TILE_SIZE, j * TILE_SIZE);
-			else
-				put_img(game, game->tile.background_ptr, i * TILE_SIZE, j * TILE_SIZE);
+			put_img(game, game->tile.background_ptr, x * TILE_SIZE, y * TILE_SIZE); // i, x 좌표 reverse
+			if (map.map[y][x] == '1')
+				put_img(game, game->tile.wall_ptr, x * TILE_SIZE, y * TILE_SIZE);
 		}
 	}
 }
 
 void	draw_exit(t_game *game)
 {
-	int		i;
-	int		j;
+	int		x;
+	int		y;
 	t_map	map;
 
 	map = game->map;
-	i = -1;
-	while (++i < map.rows)
+	y = -1;
+	while (++y < map.rows)
 	{
-		j = -1;
-		while (++j < map.cols)
+		x = -1;
+		while (++x < map.cols)
 		{
-			if (map.map[i][j] == 'E' && game->flag[EXIT_OPEN])
-				put_img(game, game->tile.exit_ptr, i * TILE_SIZE, j * TILE_SIZE);
-			else if (map.map[i][j] == 'E' && !game->flag[EXIT_OPEN])
-				put_img(game, game->tile.closed_ptr, i * TILE_SIZE, j * TILE_SIZE);
+			if (map.map[y][x] == 'E' && game->flag[EXIT_OPEN] == FALSE)
+				put_img(game, game->tile.exit_ptr, x * TILE_SIZE, y * TILE_SIZE);
+			else if (map.map[y][x] == 'E' && game->flag[EXIT_OPEN] == TRUE)
+				put_img(game, game->tile.closed_ptr, x * TILE_SIZE, y * TILE_SIZE);
 		}
 	}
 }

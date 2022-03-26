@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 21:46:09 by soahn             #+#    #+#             */
-/*   Updated: 2022/03/26 12:36:54 by soahn            ###   ########.fr       */
+/*   Updated: 2022/03/26 14:32:50 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define TILE_SIZE 64 // todo: tile size check
 
 /* for images */
-# define ASSET_PATH "./asset/"
+# define ASSET_PATH "/Users/soahn/Desktop/42cursus/so_long/asset/"
 
 /* move status */
 # define STOP 0

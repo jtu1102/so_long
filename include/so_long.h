@@ -6,11 +6,7 @@
 /*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:43:04 by soahn             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/03/24 22:23:10 by soahn            ###   ########.fr       */
-=======
-/*   Updated: 2022/03/26 05:37:17 by soahn            ###   ########.fr       */
->>>>>>> dab3a14358460aa2b774c0157c01fd2e69d07dfe
+/*   Updated: 2022/03/26 15:35:56 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +52,7 @@ typedef struct s_player
 	t_sprites	*initial;
 	t_sprites	*sprites;
 
-	t_sprites	*move_initial[4];
+	t_sprites	*move_initial[4]; //up, down, left, right 네 개 담을 배열
 	t_sprites	*move_sprites[4];
 }		t_player;
 

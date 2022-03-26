@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   loop_hook.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 20:52:30 by soahn             #+#    #+#             */
-/*   Updated: 2022/03/26 05:09:56 by soahn            ###   ########.fr       */
+/*   Updated: 2022/03/26 15:35:55 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-//temporary for compile 
+//temporary for compile
 void	move_player(t_game *game)
 {
 	game->player.x = 0;

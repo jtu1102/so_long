@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 20:09:05 by soahn             #+#    #+#             */
-/*   Updated: 2022/03/26 08:08:30 by soahn            ###   ########.fr       */
+/*   Updated: 2022/03/26 14:16:38 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	init_flag(t_game *game)
 {
 	game->flag[BONUS] = FALSE;
+	game->flag[EXIT_OPEN] = FALSE;
 }
 
 void	init_game(t_game *game)

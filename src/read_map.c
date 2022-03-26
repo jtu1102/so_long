@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 21:30:30 by soahn             #+#    #+#             */
-/*   Updated: 2022/03/26 06:37:36 by soahn            ###   ########.fr       */
+/*   Updated: 2022/03/26 14:24:35 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		open_file(char *path)
 
 void	map_save(t_game *game, char *path)
 {
-// save line by line of the map + check if the map is walled 
+// save line by line of the map + check if the map is walled
 	int		i;
 	int		j;
 	int		fd;
@@ -48,6 +48,14 @@ void	map_save(t_game *game, char *path)
 	}
 	free(line);
 	close(fd);
+	//debug - 아주 잘 찍힘 . 줸장
+	for (i = 0; i < game->map.rows; i++)
+	{
+		for (j = 0; j < game->map.cols; j++)
+			printf("%c", game->map.map[i][j]);
+		printf("\n");
+	}
+	//debug
 }
 
 void	map_malloc(t_game *game, int fd)
@@ -56,6 +64,7 @@ void	map_malloc(t_game *game, int fd)
 	int		i;
 
 	game->map.rows = 0;
+	game->map.cols = 0;
 	while (read(fd, &c, 1) > 0)
 	{
 		if (c == '\n') // number of \n == number of rows
@@ -96,7 +105,7 @@ void	read_map(t_game *game, char *path)
 	fd = open_file(path);
 	map_malloc(game, fd); // memory allocation
 	close(fd);
-	map_save(game, path); // save line by line of the map + check if the map is walled 
+	map_save(game, path); // save line by line of the map + check if the map is walled
 	chk_walled(game->map);
 	// map_components(game); 아직 왜 세야 하는지 모르겠어서 패스.
 }
