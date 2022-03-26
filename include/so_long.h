@@ -51,7 +51,7 @@ typedef struct s_player
 	int	x;
 	int	y;
 
-	t_spr
+	t_sprites	
 
 }			t_player;
 
