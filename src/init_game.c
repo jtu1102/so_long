@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 20:09:05 by soahn             #+#    #+#             */
-/*   Updated: 2022/03/26 14:16:38 by soahn            ###   ########.fr       */
+/*   Updated: 2022/03/28 20:57:10 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	init_game(t_game *game)
 	init_img(game);
 	init_flag(game);
 	draw_tiles(game);
-	////draw_player(game);
+	draw_player(game);
 	////draw_collec(game);
 	draw_exit(game);
 }

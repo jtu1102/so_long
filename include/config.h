@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 21:46:09 by soahn             #+#    #+#             */
-/*   Updated: 2022/03/26 14:32:50 by soahn            ###   ########.fr       */
+/*   Updated: 2022/03/28 21:07:27 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,18 @@
 # define TILE_SIZE 64 // todo: tile size check
 
 /* for images */
-# define ASSET_PATH "/Users/soahn/Desktop/42cursus/so_long/asset/"
+# define ASSET_PATH "/Users/soahn/Desktop/42cursus/so_long/asset/" //todo: 상대경로로 바꾸기!
 
-/* move status */
-# define STOP 0
-# define UP 1
-# define DOWN 2
-# define LEFT 3
-# define RIGHT 4
+/* move status, player img index */
+# define UP 0
+# define DOWN 1
+# define LEFT 2
+# define RIGHT 3
+# define STOP 4
+
+/* offset */
+# define X 0
+# define Y 1
 
 /* for mlx_hook */
 # define KEY_PRESS 2

@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 01:16:59 by soahn             #+#    #+#             */
-/*   Updated: 2022/03/26 14:42:59 by soahn            ###   ########.fr       */
+/*   Updated: 2022/03/28 21:05:55 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,26 @@ void	draw_exit(t_game *game)
 			else if (map.map[y][x] == 'E' && game->flag[EXIT_OPEN] == TRUE)
 				put_img(game, game->tile.closed_ptr, x * TILE_SIZE, y * TILE_SIZE);
 		}
+	}
+}
+
+void	draw_player(t_game *game)
+{
+	int		x;
+	int		y;
+	t_map	map;
+
+	map = game->map;
+	y = -1;
+	while (++y < map.rows)
+	{
+		x = -1;
+		while (++x < map.cols)
+			if (map.map[y][x] == 'P')
+			{
+				game->player.x = x;
+				game->player.y = y;
+				put_img(game, game->player.move_initial[DOWN].ptr, x * TILE_SIZE, y * TILE_SIZE);
+			}
 	}
 }

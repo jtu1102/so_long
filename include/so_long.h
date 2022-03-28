@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:43:04 by soahn             #+#    #+#             */
-/*   Updated: 2022/03/26 15:35:56 by soahn            ###   ########.fr       */
+/*   Updated: 2022/03/28 21:06:12 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ typedef struct s_player
 	t_sprites	*initial;
 	t_sprites	*sprites;
 
-	t_sprites	*move_initial[4]; //up, down, left, right 네 개 담을 배열
-	t_sprites	*move_sprites[4];
+	t_sprites	move_initial[4]; //up, down, left, right 네 개 담을 배열
+	t_sprites	move_sprites[4];
 }		t_player;
 
 typedef struct s_collec
@@ -65,9 +65,9 @@ typedef struct s_game
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
-	int			move_stat;
-	int			offset;
-	int			step;
+	int			move_stat; // 눌린 키값을 판단하는 변수
+	int			offset[2]; // 상하좌우로 움직일 칸 개수 설정
+	int			step; // 키 눌린 횟수
 	int			fps; // 500 번 마다 loop을 한번씩 건너뛴다. (왜?)
 	t_map		map;
 	t_tile		tile;
@@ -104,6 +104,7 @@ int	exit_game(t_game *game);
 /* draw.c */
 void	draw_tiles(t_game *game);
 void	draw_exit(t_game *game);
+void	draw_player(t_game *game);
 
 /* read_map.c */
 void	read_map(t_game *game, char *path);
