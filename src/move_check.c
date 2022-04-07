@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   loop_hook.c                                        :+:      :+:    :+:   */
+/*   move_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/23 20:52:30 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/08 00:57:18 by soahn            ###   ########.fr       */
+/*   Created: 2022/04/08 01:29:34 by soahn             #+#    #+#             */
+/*   Updated: 2022/04/08 01:41:29 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-//temporal version for compile
-void	move_player(t_game *game)
+void	move_check_wall(t_game *game)
 {
-	draw_tiles(game);
-	draw_exit(game);
-	draw_sprites_player(game);
+	char	**map;
+	int		row_pos_idx;
+	int		col_pos_idx;
+
+	map = game->map.map;
+	row_pos_idx = (game->player.y + game->offset[Y]) / TILE_SIZE;
+	col_pos_idx = (game->player.x + game->offset[X]) / TILE_SIZE;
 }
 
-int	loop_hook(t_game *game)
+void	move_check_collec(t_game *game)
+{//todo: collectable 먹는거 구현
+	game->flag[0] = game->flag[0];
+}
+
+void	move_check_exit(t_game *game)
 {
-	if (++game->fps < 500)
-	{
-		if (game->move_stat != STOP)
-			move_player(game);
-		return (1);
-	}
-	game->fps = 0;
-	return (1);
+	
 }

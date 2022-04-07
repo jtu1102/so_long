@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:43:04 by soahn             #+#    #+#             */
-/*   Updated: 2022/03/28 21:06:12 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/08 01:22:38 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_map
 	int		component[4]; //count the number of each components (player, exit, collectible item, enemy)
 }	t_map;
 
-typedef struct s_sprites
+typedef struct s_sprites // just list
 {
 	void	*ptr;
 	struct s_sprites	*next;
@@ -49,11 +49,11 @@ typedef struct s_player
 	int	x;
 	int	y;
 
-	t_sprites	*initial;
-	t_sprites	*sprites;
+	t_sprites	*initial; // 현재 움직이는 방향의 리스트 첫번째 포인터 올리기
+	t_sprites	*sprites; // 현재 움직이는 방향의 리스트 포인터 올리기
 
-	t_sprites	move_initial[4]; //up, down, left, right 네 개 담을 배열
-	t_sprites	move_sprites[4];
+	t_sprites	*move_initial[4]; //up, down, left, right 네 개의 리스트 첫 포인터를 저장해 둘 배열(circular이라서 처음을 알아야 함)
+	t_sprites	*move_sprites[4]; //리스트 쭉 이어진 걸 담아 둘 배열
 }		t_player;
 
 typedef struct s_collec
@@ -66,6 +66,7 @@ typedef struct s_game
 	void		*mlx_ptr;
 	void		*win_ptr;
 	int			move_stat; // 눌린 키값을 판단하는 변수
+	int			move_log; // 64마다 초기화 하는 변수, 움직임 멈추기 위해 필요
 	int			offset[2]; // 상하좌우로 움직일 칸 개수 설정
 	int			step; // 키 눌린 횟수
 	int			fps; // 500 번 마다 loop을 한번씩 건너뛴다. (왜?)

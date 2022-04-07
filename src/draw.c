@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 01:16:59 by soahn             #+#    #+#             */
-/*   Updated: 2022/03/28 21:05:55 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/08 00:44:08 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	draw_player(t_game *game)
 			{
 				game->player.x = x;
 				game->player.y = y;
-				put_img(game, game->player.move_initial[DOWN].ptr, x * TILE_SIZE, y * TILE_SIZE);
+				put_img(game, game->player.initial->ptr, x * TILE_SIZE, y * TILE_SIZE);
 			}
 	}
 }

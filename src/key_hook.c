@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 20:47:21 by soahn             #+#    #+#             */
-/*   Updated: 2022/03/28 21:08:08 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/08 01:40:35 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,33 @@ static void	_set_offset(int keycode, t_game *game)
 	{
 		game->move_stat = UP;
 		game->offset[X] = 0;
-		game->offset[Y] = -1;
+		game->offset[Y] = -1 * STEP;
+		game->player.initial = game->player.move_initial[UP];
+		game->player.sprites = game->player.move_sprites[UP];
 	}
 	else if (keycode == KEY_S)
 	{
 		game->move_stat = DOWN;
 		game->offset[X] = 0;
-		game->offset[Y] = 1;
-	}
+		game->offset[Y] = 1 * STEP;
+		game->player.initial = game->player.move_initial[DOWN];
+		game->player.sprites = game->player.move_sprites[DOWN];
+		}
 	else if (keycode == KEY_A)
 	{
 		game->move_stat = LEFT;
-		game->offset[X] = -1;
+		game->offset[X] = -1 * STEP;
 		game->offset[Y] = 0;
+		game->player.initial = game->player.move_initial[LEFT];
+		game->player.sprites = game->player.move_sprites[LEFT];
 	}
 	else if (keycode == KEY_D)
 	{
 		game->move_stat = RIGHT;
-		game->offset[X] = 1;
+		game->offset[X] = 1 * STEP;
 		game->offset[Y] = 0;
+		game->player.initial = game->player.move_initial[RIGHT];
+		game->player.sprites = game->player.move_sprites[RIGHT];
 	}
 }
 
