@@ -6,7 +6,7 @@
 #    By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/13 15:13:27 by soahn             #+#    #+#              #
-#    Updated: 2022/03/26 06:46:25 by soahn            ###   ########.fr        #
+#    Updated: 2022/04/10 13:02:48 by soahn            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ MLX_DIR		= ./mlx/
 INCS		= -I include
 MLXFLAGS	= -lmlx -framework OpenGL -framework Appkit
 
-SRC			= main.c draw.c exit_game.c exit_msg.c init_game.c init_img.c key_hook.c \
+SRC			= main.c draw_sprites_player.c draw.c exit_game.c exit_msg.c init_game.c init_img.c key_hook.c \
 			loop_hook.c mlx_img_helper.c read_map_helper.c read_map.c
 
 SRCS		= $(addprefix $(SRCS_DIR), $(SRC))

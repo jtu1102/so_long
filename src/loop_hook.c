@@ -6,13 +6,12 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 20:52:30 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/08 00:57:18 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/10 12:20:52 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-//temporal version for compile
 void	move_player(t_game *game)
 {
 	draw_tiles(game);

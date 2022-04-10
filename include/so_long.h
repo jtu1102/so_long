@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:43:04 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/08 01:22:38 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/10 12:58:51 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,14 @@ typedef struct s_game
 	int			flag[2];
 }	t_game;
 
+/* draw_sprites_player.c */
+void	draw_sprites_player(t_game *game);
+
+/* draw.c */
+void	draw_tiles(t_game *game);
+void	draw_exit(t_game *game);
+void	draw_player(t_game *game);
+
 /* init_game.c */
 void	init_game(t_game *game);
 
@@ -88,6 +96,9 @@ void	init_img(t_game *game);
 
 /* exit_msg.c */
 void	exit_msg(char *msg);
+
+/* key_hook.c */
+int	key_hook(int keycode, t_game *game);
 
 /* mlx_img_helper.c */
 void	*wrap_xpm_to_img(t_game *game, char *str);
@@ -101,11 +112,6 @@ int	loop_hook(t_game *game);
 
 /* exit_game.c */
 int	exit_game(t_game *game);
-
-/* draw.c */
-void	draw_tiles(t_game *game);
-void	draw_exit(t_game *game);
-void	draw_player(t_game *game);
 
 /* read_map.c */
 void	read_map(t_game *game, char *path);

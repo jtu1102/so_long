@@ -6,9 +6,12 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 21:46:09 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/08 01:13:22 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/10 14:16:46 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+# define HOME //todo: 제출 전 asset 경로 수정과 함께 삭제할 것
+// # define CLUSTER
 
 #ifndef CONFIG_H
 # define CONFIG_H
@@ -26,10 +29,16 @@
 # define R 3 // bonus part (enemy)
 
 # define EXIT_ERROR 1
-# define TILE_SIZE 64 // todo: tile size check
+# define TILE_SIZE 64 
 
 /* for images */
+#ifdef CLUSTER
 # define ASSET_PATH "/Users/soahn/Desktop/42cursus/so_long/asset/" //todo: 상대경로로 바꾸기!
+#endif
+
+#ifdef HOME
+# define ASSET_PATH "/Users/soahn/42curses/so_long/asset/"
+#endif
 
 /* move status, player img index */
 # define UP 0
@@ -43,13 +52,13 @@
 # define Y 1
 
 /* for mlx_hook */
-# define KEY_PRESS 2
 # define KEY_EXIT 17
 # define NO_MASK 0
 # define KEY_W 13
 # define KEY_S 1
 # define KEY_A 0
 # define KEY_D 2
+# define KEY_ESC 53
 
 # define STEP 4
 
