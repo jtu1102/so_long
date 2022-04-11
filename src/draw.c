@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 01:16:59 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/10 14:09:15 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/12 00:32:41 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,29 @@ void	draw_player(t_game *game)
 		while (++x < map.cols)
 			if (map.map[y][x] == 'P')
 			{
-				game->player.x = x;
-				game->player.y = y;
-				put_img(game, game->player.initial->ptr, x * TILE_SIZE, y * TILE_SIZE);
+				game->player.x = x * TILE_SIZE;
+				game->player.y = y * TILE_SIZE;
+				put_img(game, game->player.initial->ptr, game->player.x, game->player.y);
+			}
+	}
+}
+
+void	draw_collec(t_game *game)
+{
+	int			x;
+	int			y;
+	t_map		map;
+
+	map = game->map;
+	y = -1;
+	while (++y < map.rows)
+	{
+		x = -1;
+		while (++x < map.cols)
+			if (map.map[y][x] == 'C')
+			{
+				lst_add(&game->collec.head, x * TILE_SIZE, y * TILE_SIZE);
+				draw_sprites_collec(game);
 			}
 	}
 }

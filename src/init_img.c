@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 00:11:24 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/10 13:56:13 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/11 23:33:39 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,7 @@ static void _init_player(t_game *game)
 
 static void _init_collect(t_game *game)
 {
-	game->collec.ptr = NULL;
-	// if (game->flag[BONUS])
-	// 	game->imgs.enemy.ptr = wrap_xpm_to_img(game, ".xpm");
-	// game->imgs.collec.ptr = wrap_xpm_to_img(game, "heart.xpm");
+	make_sprites_list(game, &game->collec.sprites, "heart");
 }
 
 void init_img(t_game *game)

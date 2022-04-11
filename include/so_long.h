@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:43:04 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/10 12:58:51 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/12 00:45:07 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_tile
 	void	*wall_ptr;
 	void	*exit_ptr;
 	void	*closed_ptr;
-}		t_tile;
+}	t_tile;
 
 typedef struct s_player
 {
@@ -54,11 +54,19 @@ typedef struct s_player
 
 	t_sprites	*move_initial[4]; //up, down, left, right 네 개의 리스트 첫 포인터를 저장해 둘 배열(circular이라서 처음을 알아야 함)
 	t_sprites	*move_sprites[4]; //리스트 쭉 이어진 걸 담아 둘 배열
-}		t_player;
+}	t_player;
+
+typedef struct s_position
+{
+	int					x;
+	int					y;
+	struct s_position	*next;
+}	t_position;
 
 typedef struct s_collec
 {
-	void	*ptr;
+	t_position	*head;
+	t_sprites	*sprites;
 }	t_collec;
 
 typedef struct s_game
@@ -77,13 +85,15 @@ typedef struct s_game
 	int			flag[2];
 }	t_game;
 
-/* draw_sprites_player.c */
+/* draw_sprites.c */
 void	draw_sprites_player(t_game *game);
+void	draw_sprites_collec(t_game *game);
 
 /* draw.c */
 void	draw_tiles(t_game *game);
 void	draw_exit(t_game *game);
 void	draw_player(t_game *game);
+void	draw_collec(t_game *game);
 
 /* init_game.c */
 void	init_game(t_game *game);
@@ -109,6 +119,10 @@ int	key_hook(int keycode, t_game *game);
 
 /* loop_hook.c */
 int	loop_hook(t_game *game);
+
+/* lst_helper.c */
+void	lst_add(t_position **head, int x, int y);
+void	lst_delete(t_position **head, int x, int y);
 
 /* exit_game.c */
 int	exit_game(t_game *game);

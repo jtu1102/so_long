@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_sprites_player.c                              :+:      :+:    :+:   */
+/*   draw_sprites.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 00:58:14 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/10 12:56:33 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/12 00:58:20 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	move_check_wall(t_game *game)
 		col_pos_idx++;
 	else
 		row_pos_idx++;
-	//벽에 부딪히는지, 한 칸 전부 이동했는지 확인해서 한번에 한 칸만 이동
+	//벽에 부딪히는지, 한 칸 전부 이동했는지 확인해서 한번에 한 칸만 이동 (??)
 	if (map[row_pos_idx][col_pos_idx] != '1' ||
 		(!((game->player.x + game->offset[X]) % TILE_SIZE) &&
 		!((game->player.y + game->offset[Y]) % TILE_SIZE)))
@@ -49,6 +49,7 @@ void	move_check_collec(t_game *game)
 		map[row_pos_idx][col_pos_idx] == 'C')
 	{
 		//todo: collectable 먹는거 구현 - collective 삭제
+		lst_delete(&game->collec.head, col_pos_idx, row_pos_idx);
 		put_img(game, game->tile.background_ptr, row_pos_idx, col_pos_idx);
 	}
 }
@@ -67,7 +68,7 @@ void	move_check_exit(t_game *game)
 		map[row_pos_idx][col_pos_idx] == 'E')
 	{
 		//todo: collect 다 먹었는지 확인하기 (리스트 비었는지!)
-		ft_putstr_fd("Win!", STDOUT_FILENO);
+		ft_putstr_fd("Win!\n", STDOUT_FILENO);
 		exit_game(game);
 	}
 }
@@ -76,9 +77,23 @@ void	draw_sprites_player(t_game *game)
 {
 //moving 벽 확인해서 x, y 세팅하고, collectable 먹었는지, exit 들어가는지 확인해서 적절히 !
 	move_check_wall(game);
-	// check_collec(game);
+	move_check_collec(game);
 	move_check_exit(game);
 	game->move_log += STEP;
+	// printf("x: %d, y: %d", game->player.x, game->player.y);
 	put_img(game, game->player.sprites->ptr, game->player.x, game->player.y);
 	game->player.sprites = game->player.sprites->next;
+}
+
+void	draw_sprites_collec(t_game *game)
+{
+	t_position	*now;
+
+	now = game->collec.head;
+	while (now)
+	{
+		put_img(game, game->collec.sprites->ptr, now->x, now->y);
+		game->collec.sprites = game->collec.sprites->next;
+		now = now->next;
+	}
 }
