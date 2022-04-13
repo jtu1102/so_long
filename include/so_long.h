@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:43:04 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/12 00:45:07 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/13 20:00:32 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,14 @@ typedef struct s_player
 	t_sprites	*initial; // 현재 움직이는 방향의 리스트 첫번째 포인터 올리기
 	t_sprites	*sprites; // 현재 움직이는 방향의 리스트 포인터 올리기
 
-	t_sprites	*move_initial[4]; //up, down, left, right 네 개의 리스트 첫 포인터를 저장해 둘 배열(circular이라서 처음을 알아야 함)
-	t_sprites	*move_sprites[4]; //리스트 쭉 이어진 걸 담아 둘 배열
+	t_sprites	*initial_up;
+	t_sprites	*initial_down;
+	t_sprites	*initial_left;
+	t_sprites	*initial_right;
+	t_sprites	*sprites_up;
+	t_sprites	*sprites_down;
+	t_sprites	*sprites_left;
+	t_sprites	*sprites_right;
 }	t_player;
 
 typedef struct s_position

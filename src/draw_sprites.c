@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   draw_sprites.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 00:58:14 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/12 00:58:20 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/13 21:19:17 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void	move_check_wall(t_game *game)
+void	move_check_wall(t_game *game) //얘가! 문제야!
 {
 	char	**map;
 	int		row_pos_idx;
@@ -21,9 +21,9 @@ void	move_check_wall(t_game *game)
 	map = game->map.map;
 	row_pos_idx = (game->player.y + game->offset[Y]) / TILE_SIZE;
 	col_pos_idx = (game->player.x + game->offset[X]) / TILE_SIZE;
-	if (game->move_stat == LEFT || game->move_stat == RIGHT)
+	if (game->offset[X] > 0)
 		col_pos_idx++;
-	else
+	else if (game->offset[Y] > 0)
 		row_pos_idx++;
 	//벽에 부딪히는지, 한 칸 전부 이동했는지 확인해서 한번에 한 칸만 이동 (??)
 	if (map[row_pos_idx][col_pos_idx] != '1' ||
@@ -80,7 +80,6 @@ void	draw_sprites_player(t_game *game)
 	move_check_collec(game);
 	move_check_exit(game);
 	game->move_log += STEP;
-	// printf("x: %d, y: %d", game->player.x, game->player.y);
 	put_img(game, game->player.sprites->ptr, game->player.x, game->player.y);
 	game->player.sprites = game->player.sprites->next;
 }
@@ -96,4 +95,5 @@ void	draw_sprites_collec(t_game *game)
 		game->collec.sprites = game->collec.sprites->next;
 		now = now->next;
 	}
+	game->collec.sprites = game->collec.sprites->next;
 }

@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 21:30:30 by soahn             #+#    #+#             */
-/*   Updated: 2022/03/26 14:24:35 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/13 20:20:21 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,6 @@ void	map_save(t_game *game, char *path)
 	}
 	free(line);
 	close(fd);
-	//debug - 아주 잘 찍힘 . 줸장
-	for (i = 0; i < game->map.rows; i++)
-	{
-		for (j = 0; j < game->map.cols; j++)
-			printf("%c", game->map.map[i][j]);
-		printf("\n");
-	}
-	//debug
 }
 
 void	map_malloc(t_game *game, int fd)

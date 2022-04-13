@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_img.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 00:11:24 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/11 23:33:39 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/13 20:04:35 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,16 @@ void	make_sprites_list(t_game *game, t_sprites **sprites, char *root_file)
 
 static void _init_player(t_game *game)
 {
-	make_sprites_list(game, &game->player.move_sprites[UP], "player_up");
-	make_sprites_list(game, &game->player.move_sprites[DOWN], "player_down");
-	make_sprites_list(game, &game->player.move_sprites[LEFT], "player_left");
-	make_sprites_list(game, &game->player.move_sprites[RIGHT], "player_right");
-	game->player.move_initial[UP] = game->player.move_sprites[UP];
-	game->player.move_initial[DOWN] = game->player.move_sprites[DOWN];
-	game->player.move_initial[LEFT] = game->player.move_sprites[LEFT];
-	game->player.move_initial[RIGHT] = game->player.move_sprites[RIGHT];
-	game->player.initial = game->player.move_sprites[DOWN]; // 정지 해 있을 때 초기모습 (?)
-	game->player.sprites = game->player.move_sprites[DOWN];
+	make_sprites_list(game, &game->player.sprites_up, "player_up");
+	make_sprites_list(game, &game->player.sprites_down, "player_down");
+	make_sprites_list(game, &game->player.sprites_left, "player_left");
+	make_sprites_list(game, &game->player.sprites_right, "player_right");
+	game->player.initial_up = game->player.sprites_up;
+	game->player.initial_down = game->player.sprites_down;
+	game->player.initial_left = game->player.sprites_left;
+	game->player.initial_right = game->player.sprites_right;
+	game->player.initial = game->player.sprites_down;
+	game->player.sprites = game->player.sprites_down;
 }
 
 static void _init_collect(t_game *game)

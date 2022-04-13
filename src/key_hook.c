@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 20:47:21 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/10 14:16:11 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/13 20:06:31 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,32 +26,32 @@ static void	_set_offset(int keycode, t_game *game)
 		game->move_stat = UP;
 		game->offset[X] = 0;
 		game->offset[Y] = -1 * STEP;
-		game->player.initial = game->player.move_initial[UP];
-		game->player.sprites = game->player.move_sprites[UP];
+		game->player.initial = game->player.initial_up;
+		game->player.sprites = game->player.sprites_up;
 	}
 	else if (keycode == KEY_S)
 	{
 		game->move_stat = DOWN;
 		game->offset[X] = 0;
 		game->offset[Y] = 1 * STEP;
-		game->player.initial = game->player.move_initial[DOWN];
-		game->player.sprites = game->player.move_sprites[DOWN];
+		game->player.initial = game->player.initial_down;
+		game->player.sprites = game->player.sprites_down;
 	}
 	else if (keycode == KEY_A)
 	{
 		game->move_stat = LEFT;
 		game->offset[X] = -1 * STEP;
 		game->offset[Y] = 0;
-		game->player.initial = game->player.move_initial[LEFT];
-		game->player.sprites = game->player.move_sprites[LEFT];
+		game->player.initial = game->player.initial_left;
+		game->player.sprites = game->player.sprites_left;
 	}
 	else if (keycode == KEY_D)
 	{
 		game->move_stat = RIGHT;
 		game->offset[X] = 1 * STEP;
 		game->offset[Y] = 0;
-		game->player.initial = game->player.move_initial[RIGHT];
-		game->player.sprites = game->player.move_sprites[RIGHT];
+		game->player.initial = game->player.initial_right;
+		game->player.sprites = game->player.sprites_right;
 	}
 }
 

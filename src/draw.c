@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 01:16:59 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/12 00:32:41 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/13 20:23:46 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	draw_collec(t_game *game)
 			if (map.map[y][x] == 'C')
 			{
 				lst_add(&game->collec.head, x * TILE_SIZE, y * TILE_SIZE);
-				draw_sprites_collec(game);
+				// draw_sprites_collec(game);
 			}
 	}
 }

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   config.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 21:46:09 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/10 14:16:46 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/13 19:30:37 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# define HOME //todo: 제출 전 asset 경로 수정과 함께 삭제할 것
+# define CLUSTER //todo: 제출 전 asset 경로 수정과 함께 삭제할 것
 // # define CLUSTER
 
 #ifndef CONFIG_H
@@ -29,7 +29,7 @@
 # define R 3 // bonus part (enemy)
 
 # define EXIT_ERROR 1
-# define TILE_SIZE 64 
+# define TILE_SIZE 64
 
 /* for images */
 #ifdef CLUSTER
