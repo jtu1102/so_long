@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:43:04 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/13 20:00:32 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/16 14:50:11 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 # define SO_LONG_H
 
 # include <stdlib.h>
-# include <string.h> //왜?
 
 # include "./config.h"
 # include "../mlx/mlx.h"
-# include "../lib/include/libft.h" //내
-# include "../lib/include/ft_printf.h" //코드로
+# include "../lib/include/libft.h" //내 코드로
 # include "../lib/include/get_next_line.h" //바꾸기!
 
 typedef struct s_map
@@ -27,10 +25,9 @@ typedef struct s_map
 	int		rows;
 	int		cols;
 	char	**map;
-	int		component[4]; //count the number of each components (player, exit, collectible item, enemy)
 }	t_map;
 
-typedef struct s_sprites // just list
+typedef struct s_sprites // just list' node
 {
 	void	*ptr;
 	struct s_sprites	*next;
@@ -49,13 +46,13 @@ typedef struct s_player
 	int	x;
 	int	y;
 
-	t_sprites	*initial; // 현재 움직이는 방향의 리스트 첫번째 포인터 올리기
-	t_sprites	*sprites; // 현재 움직이는 방향의 리스트 포인터 올리기
+	t_sprites	*stage_stop; // 현재 움직이는 방향의 리스트 첫번째 포인터 올리기 ->stage로 rename todo
+	t_sprites	*stage_sprites; // 현재 움직이는 방향의 리스트 포인터 올리기
 
-	t_sprites	*initial_up;
-	t_sprites	*initial_down;
-	t_sprites	*initial_left;
-	t_sprites	*initial_right;
+	t_sprites	*stop_up;
+	t_sprites	*stop_down;
+	t_sprites	*stop_left;
+	t_sprites	*stop_right;
 	t_sprites	*sprites_up;
 	t_sprites	*sprites_down;
 	t_sprites	*sprites_left;
@@ -83,7 +80,6 @@ typedef struct s_game
 	int			move_log; // 64마다 초기화 하는 변수, 움직임 멈추기 위해 필요
 	int			offset[2]; // 상하좌우로 움직일 칸 개수 설정
 	int			step; // 키 눌린 횟수
-	int			fps; // 500 번 마다 loop을 한번씩 건너뛴다. (왜?)
 	t_map		map;
 	t_tile		tile;
 	t_player	player;

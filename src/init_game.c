@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 20:09:05 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/13 21:03:25 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/16 14:51:37 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	init_flag(t_game *game)
 	game->offset[X] = 0;
 	game->offset[Y] = 0;
 	game->step = 0;
-	game->fps = 0;
 	game->flag[BONUS] = FALSE;
 	game->flag[EXIT_OPEN] = FALSE;
 }

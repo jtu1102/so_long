@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+         #
+#    By: soahn <soahn@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/13 15:13:27 by soahn             #+#    #+#              #
-#    Updated: 2022/04/12 00:13:12 by soahn            ###   ########.fr        #
+#    Updated: 2022/04/16 14:43:05 by soahn            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,8 @@ INCS_DIR	= ./include/
 SRCS_DIR	= ./src/
 LIB_DIR		= ./lib/
 MLX_DIR		= ./mlx/
-# LIB_NAME	= ./lib/ftlib.a
-# MLX_NAME	= ./mlx/libmlx.a
+LIB_NAME	= ./lib/ftlib.a
+MLX_NAME	= ./mlx/libmlx.a
 
 INCS		= -I include
 MLXFLAGS	= -lmlx -framework OpenGL -framework Appkit
@@ -38,19 +38,19 @@ OBJS		= $(SRCS:.c=.o)
 	$(CC) $(CFLAGS) -I $(INCS_DIR) -o $@ -c $?
 
 $(NAME) : $(OBJS)
-#make -C $(LIB_DIR)
-#make -C $(MLX_DIR)
+	make -C $(LIB_DIR)
+	make -C $(MLX_DIR)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -I $(INCS_DIR) -L $(LIB_DIR) -lft -L $(MLX_DIR) $(MLXFLAGS)
 
 all : $(NAME)
 
 clean :
-#make -C $(LIB_DIR) clean
-#make -C $(MLX_DIR) clean
+	make -C $(LIB_DIR) clean
+	make -C $(MLX_DIR) clean
 	$(RM) $(OBJS)
 
 fclean : clean
-#make -C $(LIB_DIR) fclean
+	make -C $(LIB_DIR) fclean
 	$(RM) $(NAME)
 
 re : fclean all
