@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: soahn <soahn@student.42.fr>                +#+  +:+       +#+         #
+#    By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/19 15:58:12 by sashin            #+#    #+#              #
-#    Updated: 2022/04/16 14:44:21 by soahn            ###   ########.fr        #
+#    Updated: 2022/04/17 00:22:53 by soahn            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ GNL				= get_next_line.c get_next_line_utils.c
 
 all: $(NAME)
 
-$(NAME): libft ft_printf gnl
+$(NAME): libft gnl
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c -o $@ $^
@@ -58,4 +58,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re libft ft_printf gnl
+.PHONY: all bonus clean fclean re libft gnl

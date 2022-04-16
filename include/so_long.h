@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:43:04 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/16 14:50:11 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/16 09:13:11 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SO_LONG_H
 
 # include <stdlib.h>
+# include <fcntl.h>
 
 # include "./config.h"
 # include "../mlx/mlx.h"
