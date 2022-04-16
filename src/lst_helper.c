@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 23:55:52 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/12 00:59:21 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/15 01:19:41 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,27 @@ void	lst_delete(t_position **head, int xpos, int ypos)
 {
 	t_position	*now;
 	t_position	*tmp;
+	t_position	*prev;
 
-	if ((*head)->x == xpos * TILE_SIZE && (*head)->y == ypos * TILE_SIZE)
+	tmp = *head;
+	if (tmp && (tmp->x == xpos * TILE_SIZE && tmp->y == ypos * TILE_SIZE))
 	{
-		*head = NULL;
-		free(*head);
+		*head = tmp->next;
+		free(tmp);
+		tmp = NULL;
 		return ;
 	}
+	prev = *head;
 	now = *head;
-	while (now->next)
+	while (now && now->next)
 	{
 		if (now->next->x == xpos * TILE_SIZE && \
 		now->next->y == ypos * TILE_SIZE)
 		{
 			tmp = now->next;
 			now->next = now->next->next;
-			tmp = NULL;
 			free(tmp);
+			tmp = NULL;
 		}
 		now = now->next;
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 21:30:30 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/13 20:20:21 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/14 23:28:38 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,10 @@ void	chk_extension(char *path)
 		++i;
 	if (ft_strncmp(p[i], "ber", 3) != 0)
 		exit_msg("Wrong extension of the map file.\n");
+	i = -1;
+	while (p[++i])
+		free(p[i]);
+	free(p);
 }
 
 void	read_map(t_game *game, char *path)

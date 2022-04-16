@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 22:53:28 by soahn             #+#    #+#             */
-/*   Updated: 2022/03/26 05:37:05 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/16 09:00:42 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,3 @@ void	chk_walled(t_map maps)
 			exit_msg("Map is not walled.\n");
 	}
 }
-
-// void	map_components(t_game *game)
-// {
-// 	game
-// 	return;
-// }

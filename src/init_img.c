@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_img.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 00:11:24 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/13 20:04:35 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/16 08:55:18 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static void _init_tile(t_game *game)
 {
 	game->tile.background_ptr = wrap_xpm_to_img(game, "tile_bg.xpm");
 	game->tile.wall_ptr = wrap_xpm_to_img(game, "tile_wall.xpm");
-	game->tile.exit_ptr = wrap_xpm_to_img(game, "exit.xpm");	 // todo: exit 이미지 너무 이상해 ㅋㅋㅋ바꿔.. 팻말이 제일 무난할듯..?
-	game->tile.closed_ptr = wrap_xpm_to_img(game, "closed.xpm"); // todo: 이것도 이상해ㅠㅠㅋㅋㅋ하..
+	game->tile.exit_ptr = wrap_xpm_to_img(game, "exit.xpm");
+	game->tile.closed_ptr = wrap_xpm_to_img(game, "closed.xpm");
 }
 
 void	make_sprites_list(t_game *game, t_sprites **sprites, char *root_file)
