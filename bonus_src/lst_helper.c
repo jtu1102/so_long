@@ -6,11 +6,11 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 23:55:52 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/15 01:19:41 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/17 18:45:53 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/so_long_bonus.h"
 
 void	lst_add(t_position **head, int x, int y)
 {
@@ -29,9 +29,17 @@ void	lst_add(t_position **head, int x, int y)
 		return ;
 	}
 	now = *head;
-	while(now->next)
+	while (now->next)
 		now = now->next;
 	now->next = node;
+}
+
+void	_first_delete(t_position **head, t_position *tmp)
+{
+	*head = tmp->next;
+	free(tmp);
+	tmp = NULL;
+	return ;
 }
 
 void	lst_delete(t_position **head, int xpos, int ypos)
@@ -42,12 +50,7 @@ void	lst_delete(t_position **head, int xpos, int ypos)
 
 	tmp = *head;
 	if (tmp && (tmp->x == xpos * TILE_SIZE && tmp->y == ypos * TILE_SIZE))
-	{
-		*head = tmp->next;
-		free(tmp);
-		tmp = NULL;
-		return ;
-	}
+		_first_delete(head, tmp);
 	prev = *head;
 	now = *head;
 	while (now && now->next)

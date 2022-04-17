@@ -6,25 +6,25 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 22:53:28 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/16 09:00:42 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/17 18:46:07 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../include/so_long.h"
+#include "../include/so_long_bonus.h"
 
 int	is_right_components(char c)
 {
 	if (c == 'P')
-		return TRUE;
+		return (TRUE);
 	if (c == 'E')
-		return TRUE;
+		return (TRUE);
 	if (c == 'C')
-		return TRUE;
+		return (TRUE);
 	if (c == '0')
-		return TRUE;
+		return (TRUE);
 	if (c == '1')
-		return TRUE;
-	return FALSE;
+		return (TRUE);
+	return (FALSE);
 }
 
 void	chk_walled(t_map maps)

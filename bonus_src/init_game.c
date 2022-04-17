@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 20:09:05 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/16 14:15:10 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/17 18:45:40 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../include/so_long.h"
+#include "../include/so_long_bonus.h"
 
 void	init_flag(t_game *game)
 {
@@ -19,7 +19,6 @@ void	init_flag(t_game *game)
 	game->offset[X] = 0;
 	game->offset[Y] = 0;
 	game->step = 0;
-	game->fps = 0;
 	game->flag[BONUS] = FALSE;
 	game->flag[EXIT_OPEN] = FALSE;
 }

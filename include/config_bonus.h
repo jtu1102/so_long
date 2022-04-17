@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_config.h                                     :+:      :+:    :+:   */
+/*   config_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 21:46:09 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/16 14:41:01 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/17 19:14:30 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CONFIG_BONUS_H
+# define CONFIG_BONUS_H
 
-#ifndef CONFIG_H
-# define CONFIG_H
+# define TILE_SIZE 64
 
 # define TRUE	1
 # define FALSE	0
@@ -22,9 +23,10 @@
 # define EXIT_OPEN 1
 
 # define P 0
-# define E 1
 # define C 2
-# define R 3 // bonus part (enemy)
+# define E 3
+# define BG 4
+# define WALL 5
 
 # define EXIT_ERROR 1
 # define TILE_SIZE 64

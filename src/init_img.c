@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   init_img.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 00:11:24 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/16 14:52:17 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/17 08:40:00 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-static void _init_tile(t_game *game)
+static void	_init_tile(t_game *game)
 {
 	game->tile.background_ptr = wrap_xpm_to_img(game, "tile_bg.xpm");
 	game->tile.wall_ptr = wrap_xpm_to_img(game, "tile_wall.xpm");
@@ -45,10 +45,10 @@ void	make_sprites_list(t_game *game, t_sprites **sprites, char *root_file)
 			now = now->next;
 		}
 	}
-	now->next = *sprites; // circular linked list
+	now->next = *sprites;
 }
 
-static void _init_player(t_game *game)
+static void	_init_player(t_game *game)
 {
 	make_sprites_list(game, &game->player.sprites_up, "player_up");
 	make_sprites_list(game, &game->player.sprites_down, "player_down");
@@ -62,7 +62,7 @@ static void _init_player(t_game *game)
 	game->player.stage_sprites = game->player.sprites_down;
 }
 
-static void _init_collect(t_game *game)
+static void	_init_collect(t_game *game)
 {
 	t_sprites	*now;
 	char		*file;
@@ -87,10 +87,10 @@ static void _init_collect(t_game *game)
 			now = now->next;
 		}
 	}
-	now->next = game->collec.sprites; // circular linked list
+	now->next = game->collec.sprites;
 }
 
-void init_img(t_game *game)
+void	init_img(t_game *game)
 {
 	_init_tile(game);
 	_init_player(game);

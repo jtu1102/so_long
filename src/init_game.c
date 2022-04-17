@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 20:09:05 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/16 14:51:37 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/17 19:04:48 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../include/so_long.h"
+#include "../include/so_long.h"
 
 void	init_flag(t_game *game)
 {
+	int	i;
+
 	game->move_stat = STOP;
 	game->move_log = 0;
 	game->offset[X] = 0;
@@ -21,6 +23,9 @@ void	init_flag(t_game *game)
 	game->step = 0;
 	game->flag[BONUS] = FALSE;
 	game->flag[EXIT_OPEN] = FALSE;
+	i = -1;
+	while (++i < 5)
+		game->cnt_comp[i] = 0;
 }
 
 void	init_game(t_game *game)

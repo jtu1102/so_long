@@ -6,11 +6,11 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 22:09:57 by soahn             #+#    #+#             */
-/*   Updated: 2022/03/14 22:15:35 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/17 18:45:36 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/so_long_bonus.h"
 
 void	exit_msg(char *msg)
 {

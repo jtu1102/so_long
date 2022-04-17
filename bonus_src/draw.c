@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 01:16:59 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/16 14:25:00 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/17 18:45:29 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/so_long_bonus.h"
 
 void	draw_tiles(t_game *game)
 {
@@ -25,10 +25,13 @@ void	draw_tiles(t_game *game)
 		x = -1;
 		while (++x < map.cols)
 		{
-			if (map.map[y][x] == '0' || map.map[y][x] == 'P' || map.map[y][x] == 'C')
-				put_img(game, game->tile.background_ptr, x * TILE_SIZE, y * TILE_SIZE); // i, x 좌표 reverse
+			if (map.map[y][x] == '0' ||
+				map.map[y][x] == 'P' || map.map[y][x] == 'C')
+				put_img(game, game->tile.background_ptr,
+					x * TILE_SIZE, y * TILE_SIZE);
 			else if (map.map[y][x] == '1')
-				put_img(game, game->tile.wall_ptr, x * TILE_SIZE, y * TILE_SIZE);
+				put_img(game, game->tile.wall_ptr,
+					x * TILE_SIZE, y * TILE_SIZE);
 		}
 	}
 }
@@ -48,11 +51,14 @@ void	draw_exit(t_game *game)
 		{
 			if (map.map[y][x] == 'E')
 			{
-				put_img(game, game->tile.background_ptr, x * TILE_SIZE, y * TILE_SIZE);
+				put_img(game, game->tile.background_ptr,
+					x * TILE_SIZE, y * TILE_SIZE);
 				if (game->flag[EXIT_OPEN] == FALSE)
-					put_img(game, game->tile.closed_ptr, x * TILE_SIZE, y * TILE_SIZE);
+					put_img(game, game->tile.closed_ptr,
+						x * TILE_SIZE, y * TILE_SIZE);
 				else if (game->flag[EXIT_OPEN] == TRUE)
-					put_img(game, game->tile.exit_ptr, x * TILE_SIZE, y * TILE_SIZE);
+					put_img(game, game->tile.exit_ptr,
+						x * TILE_SIZE, y * TILE_SIZE);
 			}
 		}
 	}
@@ -70,12 +76,15 @@ void	draw_player(t_game *game)
 	{
 		x = -1;
 		while (++x < map.cols)
+		{
 			if (map.map[y][x] == 'P')
 			{
 				game->player.x = x * TILE_SIZE;
 				game->player.y = y * TILE_SIZE;
-				put_img(game, game->player.initial->ptr, game->player.x, game->player.y);
+				put_img(game, game->player.stage_stop->ptr,
+					game->player.x, game->player.y);
 			}
+		}
 	}
 }
 
@@ -92,9 +101,7 @@ void	draw_collec(t_game *game)
 		x = -1;
 		while (++x < map.cols)
 			if (map.map[y][x] == 'C')
-			{
-				lst_add(&game->collec.head, x * TILE_SIZE, y * TILE_SIZE);
-				// draw_sprites_collec(game);
-			}
+				lst_add(&game->collec.head,
+					x * TILE_SIZE, y * TILE_SIZE);
 	}
 }

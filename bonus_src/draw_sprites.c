@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   draw_sprites.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 00:58:14 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/16 14:19:21 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/17 18:45:22 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/so_long_bonus.h"
 
-void	move_check_wall(t_game *game) //얘가! 문제야!
+void	move_check_wall(t_game *game)
 {
 	char	**map;
 	int		row_pos_idx;
@@ -25,7 +25,6 @@ void	move_check_wall(t_game *game) //얘가! 문제야!
 		col_pos_idx++;
 	else if (game->offset[Y] > 0)
 		row_pos_idx++;
-	//벽에 부딪히는지. ?? todo. 이해하거나 코드 빼기
 	if (map[row_pos_idx][col_pos_idx] != '1' ||
 		(!((game->player.x + game->offset[X]) % TILE_SIZE) &&
 		!((game->player.y + game->offset[Y]) % TILE_SIZE)))
@@ -35,7 +34,7 @@ void	move_check_wall(t_game *game) //얘가! 문제야!
 	}
 }
 
-void	move_check_collec(t_game *game)
+void	eat_collectable(t_game *game)
 {
 	char	**map;
 	int		row_pos_idx;
@@ -51,11 +50,10 @@ void	move_check_collec(t_game *game)
 		lst_delete(&game->collec.head, col_pos_idx, row_pos_idx);
 		if (!(game->collec.head))
 			game->flag[EXIT_OPEN] = TRUE;
-		put_img(game, game->tile.background_ptr, row_pos_idx, col_pos_idx);
 	}
 }
 
-void	move_check_exit(t_game *game)
+void	check_exit(t_game *game)
 {
 	char	**map;
 	int		row_pos_idx;
@@ -64,9 +62,10 @@ void	move_check_exit(t_game *game)
 	map = game->map.map;
 	row_pos_idx = (game->player.y + game->offset[Y]) / TILE_SIZE;
 	col_pos_idx = (game->player.x + game->offset[X]) / TILE_SIZE;
-	if (map[row_pos_idx][col_pos_idx] == 'E')
+	if (map[row_pos_idx][col_pos_idx] == 'E' &&
+		!((game->player.x + game->offset[X]) % TILE_SIZE) &&
+		!((game->player.y + game->offset[Y]) % TILE_SIZE))
 	{
-		//todo: collect 다 먹었는지 확인하기 (리스트 비었는지!)
 		if (game->flag[EXIT_OPEN])
 		{
 			ft_putstr_fd("Win!\n", STDOUT_FILENO);
@@ -77,13 +76,13 @@ void	move_check_exit(t_game *game)
 
 void	draw_sprites_player(t_game *game)
 {
-//moving 벽 확인해서 x, y 세팅하고, collectable 먹었는지, exit 들어가는지 확인해서 적절히 !
 	move_check_wall(game);
-	move_check_collec(game);
-	move_check_exit(game);
+	eat_collectable(game);
+	check_exit(game);
 	game->move_log += STEP;
-	put_img(game, game->player.sprites->ptr, game->player.x, game->player.y);
-	game->player.sprites = game->player.sprites->next;
+	put_img(game, game->player.stage_sprites->ptr,
+		game->player.x, game->player.y);
+	game->player.stage_sprites = game->player.stage_sprites->next;
 }
 
 void	draw_sprites_collec(t_game *game)

@@ -6,11 +6,11 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 20:53:22 by soahn             #+#    #+#             */
-/*   Updated: 2022/03/23 20:54:25 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/17 18:45:32 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/so_long_bonus.h"
 
 int	exit_game(t_game *game)
 {

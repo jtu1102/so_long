@@ -6,13 +6,13 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 21:30:30 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/14 23:28:38 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/17 19:08:38 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int		open_file(char *path)
+int	open_file(char *path)
 {
 	int	fd;
 
@@ -24,7 +24,6 @@ int		open_file(char *path)
 
 void	map_save(t_game *game, char *path)
 {
-// save line by line of the map + check if the map is walled
 	int		i;
 	int		j;
 	int		fd;
@@ -39,7 +38,7 @@ void	map_save(t_game *game, char *path)
 		j = -1;
 		while (++j < game->map.cols)
 		{
-			if (!is_right_components(line[j]))
+			if (!is_right_components(game, line[j]))
 				exit_msg("Invalid component has found in the map.\n");
 			game->map.map[i][j] = line[j];
 		}
@@ -59,9 +58,9 @@ void	map_malloc(t_game *game, int fd)
 	game->map.cols = 0;
 	while (read(fd, &c, 1) > 0)
 	{
-		if (c == '\n') // number of \n == number of rows
+		if (c == '\n')
 			game->map.rows++;
-		else if (!game->map.rows) // count colums with the first row
+		else if (!game->map.rows)
 			game->map.cols++;
 	}
 	game->map.map = (char **)malloc(sizeof(char *) * game->map.rows);
@@ -97,11 +96,11 @@ void	read_map(t_game *game, char *path)
 {
 	int	fd;
 
-	chk_extension(path); // chk the extension of the map file (.ber)
+	chk_extension(path);
 	fd = open_file(path);
-	map_malloc(game, fd); // memory allocation
+	map_malloc(game, fd);
 	close(fd);
-	map_save(game, path); // save line by line of the map + check if the map is walled
+	map_save(game, path);
 	chk_walled(game->map);
-	// map_components(game); 아직 왜 세야 하는지 모르겠어서 패스.
+	chk_composition(game);
 }

@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:43:04 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/16 09:13:11 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/17 19:11:34 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 # include "./config.h"
 # include "../mlx/mlx.h"
-# include "../lib/include/libft.h" //내 코드로
-# include "../lib/include/get_next_line.h" //바꾸기!
+# include "../lib/include/libft.h"
+# include "../lib/include/get_next_line.h"
 
 typedef struct s_map
 {
@@ -28,9 +28,9 @@ typedef struct s_map
 	char	**map;
 }	t_map;
 
-typedef struct s_sprites // just list' node
+typedef struct s_sprites
 {
-	void	*ptr;
+	void				*ptr;
 	struct s_sprites	*next;
 }	t_sprites;
 
@@ -44,11 +44,11 @@ typedef struct s_tile
 
 typedef struct s_player
 {
-	int	x;
-	int	y;
+	int			x;
+	int			y;
 
-	t_sprites	*stage_stop; // 현재 움직이는 방향의 리스트 첫번째 포인터 올리기 ->stage로 rename todo
-	t_sprites	*stage_sprites; // 현재 움직이는 방향의 리스트 포인터 올리기
+	t_sprites	*stage_stop;
+	t_sprites	*stage_sprites;
 
 	t_sprites	*stop_up;
 	t_sprites	*stop_down;
@@ -77,15 +77,16 @@ typedef struct s_game
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
-	int			move_stat; // 눌린 키값을 판단하는 변수
-	int			move_log; // 64마다 초기화 하는 변수, 움직임 멈추기 위해 필요
-	int			offset[2]; // 상하좌우로 움직일 칸 개수 설정
-	int			step; // 키 눌린 횟수
+	int			move_stat;
+	int			move_log;
+	int			offset[2];
+	int			step;
 	t_map		map;
 	t_tile		tile;
 	t_player	player;
 	t_collec	collec;
 	int			flag[2];
+	int			cnt_comp[6];
 }	t_game;
 
 /* draw_sprites.c */
@@ -102,7 +103,7 @@ void	draw_collec(t_game *game);
 void	init_game(t_game *game);
 
 /* exit_game.c */
-int	exit_game(t_game *game);
+int		exit_game(t_game *game);
 
 /* init_img.c */
 void	init_img(t_game *game);
@@ -111,30 +112,31 @@ void	init_img(t_game *game);
 void	exit_msg(char *msg);
 
 /* key_hook.c */
-int	key_hook(int keycode, t_game *game);
+int		key_hook(int keycode, t_game *game);
 
 /* mlx_img_helper.c */
 void	*wrap_xpm_to_img(t_game *game, char *str);
 void	put_img(t_game *game, void *img_ptr, int x, int y);
 
 /* handle_key_press.c */
-int	key_hook(int keycode, t_game *game);
+int		key_hook(int keycode, t_game *game);
 
 /* loop_hook.c */
-int	loop_hook(t_game *game);
+int		loop_hook(t_game *game);
 
 /* lst_helper.c */
 void	lst_add(t_position **head, int x, int y);
 void	lst_delete(t_position **head, int x, int y);
 
 /* exit_game.c */
-int	exit_game(t_game *game);
+int		exit_game(t_game *game);
 
 /* read_map.c */
 void	read_map(t_game *game, char *path);
 
 /* read_map_helper.c */
-int	is_right_components(char c);
+int		is_right_components(t_game *game, char c);
 void	chk_walled(t_map maps);
+void	chk_composition(t_game *game);
 
 #endif

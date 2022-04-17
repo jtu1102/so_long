@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 20:47:21 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/16 14:53:59 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/17 08:39:10 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	_print_step(int step)
 	ft_putstr_fd("\n", STDOUT_FILENO);
 }
 
-static void _sub_set_offset(int keycode, t_game *game)
+static void	_sub_set_offset(int keycode, t_game *game)
 {
 	if (keycode == KEY_A)
 	{
@@ -64,7 +64,7 @@ static void	_set_offset(int keycode, t_game *game)
 int	key_hook(int keycode, t_game *game)
 {
 	if (game->move_stat != STOP)
-		return (1); // ignore key hook when the player is moving
+		return (1);
 	_print_step(++game->step);
 	if (keycode == KEY_ESC)
 		exit_game(game);
