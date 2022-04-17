@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 00:58:14 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/17 08:38:48 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/17 20:07:32 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	move_check_wall(t_game *game)
 	}
 }
 
-void	eat_collectable(t_game *game)
+void	eat_collectible(t_game *game)
 {
 	char	**map;
 	int		row_pos_idx;
@@ -77,7 +77,7 @@ void	check_exit(t_game *game)
 void	draw_sprites_player(t_game *game)
 {
 	move_check_wall(game);
-	eat_collectable(game);
+	eat_collectible(game);
 	check_exit(game);
 	game->move_log += STEP;
 	put_img(game, game->player.stage_sprites->ptr,

@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 00:58:14 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/17 18:45:22 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/17 20:39:19 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	move_check_wall(t_game *game)
 	}
 }
 
-void	eat_collectable(t_game *game)
+void	eat_collectible(t_game *game)
 {
 	char	**map;
 	int		row_pos_idx;
@@ -50,6 +50,24 @@ void	eat_collectable(t_game *game)
 		lst_delete(&game->collec.head, col_pos_idx, row_pos_idx);
 		if (!(game->collec.head))
 			game->flag[EXIT_OPEN] = TRUE;
+	}
+}
+
+void	check_enemy(t_game *game)
+{
+	char	**map;
+	int		row_pos_idx;
+	int		col_pos_idx;
+
+	map = game->map.map;
+	row_pos_idx = (game->player.y + game->offset[Y]) / TILE_SIZE;
+	col_pos_idx = (game->player.x + game->offset[X]) / TILE_SIZE;
+	if (map[row_pos_idx][col_pos_idx] == 'N' &&
+		!((game->player.x + game->offset[X]) % TILE_SIZE) &&
+		!((game->player.y + game->offset[Y]) % TILE_SIZE))
+	{
+		ft_putstr_fd("Lose!\n", STDOUT_FILENO);
+		exit_game(game);
 	}
 }
 
@@ -77,7 +95,8 @@ void	check_exit(t_game *game)
 void	draw_sprites_player(t_game *game)
 {
 	move_check_wall(game);
-	eat_collectable(game);
+	check_enemy(game);
+	eat_collectible(game);
 	check_exit(game);
 	game->move_log += STEP;
 	put_img(game, game->player.stage_sprites->ptr,

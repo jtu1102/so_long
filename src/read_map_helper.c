@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 22:53:28 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/17 19:14:54 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/17 20:43:34 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ void	chk_walled(t_map maps)
 
 void	chk_composition(t_game *game)
 {
-	if (game->cnt_comp[P] != 0)
+	if (game->cnt_comp[P] != 1)
 		exit_msg("map should have one player position\n");
 	if (game->cnt_comp[E] == 0)
 		exit_msg("map should have at least one exit\n");
 	if (game->cnt_comp[C] == 0)
-		exit_msg("map should have at least one collectable\n");
+		exit_msg("map should have at least one collectible\n");
 }

@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 21:46:09 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/17 19:14:30 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/17 20:22:44 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define E 3
 # define BG 4
 # define WALL 5
+# define N 6
 
 # define EXIT_ERROR 1
 # define TILE_SIZE 64

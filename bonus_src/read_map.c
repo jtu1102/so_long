@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 21:30:30 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/17 18:46:11 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/17 20:01:30 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	map_save(t_game *game, char *path)
 		j = -1;
 		while (++j < game->map.cols)
 		{
-			if (!is_right_components(line[j]))
+			if (!is_right_components(game, line[j]))
 				exit_msg("Invalid component has found in the map.\n");
 			game->map.map[i][j] = line[j];
 		}
@@ -102,4 +102,5 @@ void	read_map(t_game *game, char *path)
 	close(fd);
 	map_save(game, path);
 	chk_walled(game->map);
+	chk_composition(game);
 }

@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:43:04 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/17 19:13:51 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/17 20:34:42 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
-# include "./config.h"
+# include "./config_bonus.h"
 # include "../mlx/mlx.h"
 # include "../lib/include/libft.h"
 # include "../lib/include/get_next_line.h"
@@ -73,6 +73,12 @@ typedef struct s_collec
 	t_sprites	*sprites;
 }	t_collec;
 
+typedef struct s_enemy
+{
+	void		*ptr;
+	t_position	*head;
+}	t_enemy;
+
 typedef struct s_game
 {
 	void		*mlx_ptr;
@@ -83,10 +89,11 @@ typedef struct s_game
 	int			step;
 	t_map		map;
 	t_tile		tile;
+	t_enemy		enemy;
 	t_player	player;
 	t_collec	collec;
 	int			flag[2];
-	int			cnt_comp[6];
+	int			cnt_comp[7];
 }	t_game;
 
 /* draw_sprites.c */
@@ -98,6 +105,7 @@ void	draw_tiles(t_game *game);
 void	draw_exit(t_game *game);
 void	draw_player(t_game *game);
 void	draw_collec(t_game *game);
+void	draw_enemy(t_game *game);
 
 /* init_game.c */
 void	init_game(t_game *game);

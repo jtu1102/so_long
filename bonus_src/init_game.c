@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 20:09:05 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/17 18:45:40 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/17 20:47:38 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	init_flag(t_game *game)
 {
+	int	i;
+
 	game->move_stat = STOP;
 	game->move_log = 0;
 	game->offset[X] = 0;
@@ -21,6 +23,9 @@ void	init_flag(t_game *game)
 	game->step = 0;
 	game->flag[BONUS] = FALSE;
 	game->flag[EXIT_OPEN] = FALSE;
+	i = -1;
+	while (++i < 7)
+		game->cnt_comp[i] = 0;
 }
 
 void	init_game(t_game *game)
@@ -37,6 +42,7 @@ void	init_game(t_game *game)
 	draw_tiles(game);
 	draw_player(game);
 	draw_collec(game);
+	draw_enemy(game);
 	draw_sprites_collec(game);
 	draw_exit(game);
 }
