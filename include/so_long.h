@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:43:04 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/17 19:11:34 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/18 20:50:36 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ int		key_hook(int keycode, t_game *game);
 void	*wrap_xpm_to_img(t_game *game, char *str);
 void	put_img(t_game *game, void *img_ptr, int x, int y);
 
-/* handle_key_press.c */
+/* key_hook.c */
 int		key_hook(int keycode, t_game *game);
 
 /* loop_hook.c */
@@ -127,9 +127,6 @@ int		loop_hook(t_game *game);
 /* lst_helper.c */
 void	lst_add(t_position **head, int x, int y);
 void	lst_delete(t_position **head, int x, int y);
-
-/* exit_game.c */
-int		exit_game(t_game *game);
 
 /* read_map.c */
 void	read_map(t_game *game, char *path);
