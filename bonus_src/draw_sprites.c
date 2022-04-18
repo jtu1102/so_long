@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_sprites.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 00:58:14 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/17 20:39:19 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/18 20:23:29 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,45 +50,6 @@ void	eat_collectible(t_game *game)
 		lst_delete(&game->collec.head, col_pos_idx, row_pos_idx);
 		if (!(game->collec.head))
 			game->flag[EXIT_OPEN] = TRUE;
-	}
-}
-
-void	check_enemy(t_game *game)
-{
-	char	**map;
-	int		row_pos_idx;
-	int		col_pos_idx;
-
-	map = game->map.map;
-	row_pos_idx = (game->player.y + game->offset[Y]) / TILE_SIZE;
-	col_pos_idx = (game->player.x + game->offset[X]) / TILE_SIZE;
-	if (map[row_pos_idx][col_pos_idx] == 'N' &&
-		!((game->player.x + game->offset[X]) % TILE_SIZE) &&
-		!((game->player.y + game->offset[Y]) % TILE_SIZE))
-	{
-		ft_putstr_fd("Lose!\n", STDOUT_FILENO);
-		exit_game(game);
-	}
-}
-
-void	check_exit(t_game *game)
-{
-	char	**map;
-	int		row_pos_idx;
-	int		col_pos_idx;
-
-	map = game->map.map;
-	row_pos_idx = (game->player.y + game->offset[Y]) / TILE_SIZE;
-	col_pos_idx = (game->player.x + game->offset[X]) / TILE_SIZE;
-	if (map[row_pos_idx][col_pos_idx] == 'E' &&
-		!((game->player.x + game->offset[X]) % TILE_SIZE) &&
-		!((game->player.y + game->offset[Y]) % TILE_SIZE))
-	{
-		if (game->flag[EXIT_OPEN])
-		{
-			ft_putstr_fd("Win!\n", STDOUT_FILENO);
-			exit_game(game);
-		}
 	}
 }
 

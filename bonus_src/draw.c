@@ -6,7 +6,7 @@
 /*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 01:16:59 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/18 20:10:21 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/18 20:20:08 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ void	draw_tiles(t_game *game)
 					x * TILE_SIZE, y * TILE_SIZE);
 			else if (map.map[y][x] == '1')
 				put_img(game, game->tile.wall_ptr,
+					x * TILE_SIZE, y * TILE_SIZE);
+			if (map.map[y][x] == 'N')
+				put_img(game, game->tile.enemy_ptr,
 					x * TILE_SIZE, y * TILE_SIZE);
 		}
 	}
@@ -94,7 +97,7 @@ void	draw_collec(t_game *game)
 	int			y;
 	t_map		map;
 
-	game->
+	game->collec.head = NULL;
 	map = game->map;
 	y = -1;
 	while (++y < map.rows)
@@ -103,24 +106,6 @@ void	draw_collec(t_game *game)
 		while (++x < map.cols)
 			if (map.map[y][x] == 'C')
 				lst_add(&game->collec.head,
-					x * TILE_SIZE, y * TILE_SIZE);
-	}
-}
-
-void	draw_enemy(t_game *game)
-{
-	int			x;
-	int			y;
-	t_map		map;
-
-	map = game->map;
-	y = -1;
-	while (++y < map.rows)
-	{
-		x = -1;
-		while (++x < map.cols)
-			if (map.map[y][x] == 'N')
-				lst_add(&game->enemy.head,
 					x * TILE_SIZE, y * TILE_SIZE);
 	}
 }

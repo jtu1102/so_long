@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loop_hook.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 20:52:30 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/17 20:37:26 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/18 20:18:29 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,12 @@
 void	move_player(t_game *game)
 {
 	draw_tiles(game);
-	draw_enemy(game);
 	draw_sprites_collec(game);
 	draw_exit(game);
 	draw_sprites_player(game);
 	if (!(game->move_log % TILE_SIZE))
 	{
 		draw_tiles(game);
-		draw_enemy(game);
 		draw_sprites_collec(game);
 		draw_exit(game);
 		game->player.stage_sprites = game->player.stage_stop;
@@ -38,9 +36,6 @@ int	loop_hook(t_game *game)
 	if (game->move_stat != STOP)
 		move_player(game);
 	else
-	{
 		draw_sprites_collec(game);
-		draw_enemy(game);		
-	}
 	return (1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_img.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 00:11:24 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/17 20:35:32 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/18 20:25:47 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static void	_init_tile(t_game *game)
 	game->tile.wall_ptr = wrap_xpm_to_img(game, "tile_wall.xpm");
 	game->tile.exit_ptr = wrap_xpm_to_img(game, "exit.xpm");
 	game->tile.closed_ptr = wrap_xpm_to_img(game, "closed.xpm");
+	game->tile.enemy_ptr = wrap_xpm_to_img(game, "enemy.xpm");
 }
 
 void	make_sprites_list(t_game *game, t_sprites **sprites, char *root_file)
@@ -90,15 +91,9 @@ static void	_init_collect(t_game *game)
 	now->next = game->collec.sprites;
 }
 
-void	_init_enemy(t_game *game)
-{
-	game->enemy.ptr = wrap_xpm_to_img(game, "enemy.xpm");
-}
-
 void	init_img(t_game *game)
 {
 	_init_tile(game);
 	_init_player(game);
 	_init_collect(game);
-	_init_enemy(game);
 }

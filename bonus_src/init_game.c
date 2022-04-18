@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 20:09:05 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/17 20:47:38 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/18 20:17:05 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	init_game(t_game *game)
 	draw_tiles(game);
 	draw_player(game);
 	draw_collec(game);
-	draw_enemy(game);
 	draw_sprites_collec(game);
 	draw_exit(game);
 }

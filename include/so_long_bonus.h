@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:43:04 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/17 20:34:42 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/18 20:24:36 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_tile
 	void	*wall_ptr;
 	void	*exit_ptr;
 	void	*closed_ptr;
+	void	*enemy_ptr;
 }	t_tile;
 
 typedef struct s_player
@@ -73,12 +74,6 @@ typedef struct s_collec
 	t_sprites	*sprites;
 }	t_collec;
 
-typedef struct s_enemy
-{
-	void		*ptr;
-	t_position	*head;
-}	t_enemy;
-
 typedef struct s_game
 {
 	void		*mlx_ptr;
@@ -89,7 +84,6 @@ typedef struct s_game
 	int			step;
 	t_map		map;
 	t_tile		tile;
-	t_enemy		enemy;
 	t_player	player;
 	t_collec	collec;
 	int			flag[2];
@@ -105,13 +99,14 @@ void	draw_tiles(t_game *game);
 void	draw_exit(t_game *game);
 void	draw_player(t_game *game);
 void	draw_collec(t_game *game);
-void	draw_enemy(t_game *game);
 
 /* init_game.c */
 void	init_game(t_game *game);
 
 /* exit_game.c */
 int		exit_game(t_game *game);
+void	check_enemy(t_game *game);
+void	check_exit(t_game *game);
 
 /* init_img.c */
 void	init_img(t_game *game);
@@ -135,9 +130,6 @@ int		loop_hook(t_game *game);
 /* lst_helper.c */
 void	lst_add(t_position **head, int x, int y);
 void	lst_delete(t_position **head, int x, int y);
-
-/* exit_game.c */
-int		exit_game(t_game *game);
 
 /* read_map.c */
 void	read_map(t_game *game, char *path);
