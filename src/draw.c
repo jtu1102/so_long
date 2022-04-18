@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 01:16:59 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/17 08:38:33 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/18 20:04:37 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	draw_tiles(t_game *game)
 		x = -1;
 		while (++x < map.cols)
 		{
-			if (map.map[y][x] == '0' ||
-				map.map[y][x] == 'P' || map.map[y][x] == 'C')
+			if (map.map[y][x] == '0' || map.map[y][x] == 'N'
+				|| map.map[y][x] == 'P' || map.map[y][x] == 'C')
 				put_img(game, game->tile.background_ptr,
 					x * TILE_SIZE, y * TILE_SIZE);
 			else if (map.map[y][x] == '1')
@@ -94,6 +94,7 @@ void	draw_collec(t_game *game)
 	int			y;
 	t_map		map;
 
+	game->collec.head = NULL;
 	map = game->map;
 	y = -1;
 	while (++y < map.rows)

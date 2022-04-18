@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+         #
+#    By: soahn <soahn@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/13 15:13:27 by soahn             #+#    #+#              #
-#    Updated: 2022/04/17 18:42:44 by soahn            ###   ########.fr        #
+#    Updated: 2022/04/18 19:46:01 by soahn            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = so_long
 NAME_BONUS = so_long_bonus
 
 CC		= gcc
-CFLAGS 	= -Wall -Werror -Wextra
+CFLAGS 	= -Wall -Werror -Wextra -g
 AR 		= ar rcs
 RM 		= rm -f
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soahn <soahn@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: soahn <soahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 01:16:59 by soahn             #+#    #+#             */
-/*   Updated: 2022/04/17 20:30:13 by soahn            ###   ########.fr       */
+/*   Updated: 2022/04/18 20:10:21 by soahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ void	draw_collec(t_game *game)
 	int			y;
 	t_map		map;
 
+	game->
 	map = game->map;
 	y = -1;
 	while (++y < map.rows)
